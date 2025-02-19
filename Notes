@@ -1,0 +1,15 @@
+notes:
+
+pub -sub (publish subscribe). Develpoed by twitter.
+Features: partioning,replication high throughput over point to point messaging system.
+Usage: Tracking user activities on website.
+       Aggregation of operational datasuch as call stacks erors cpu.
+       Travel companies,banking  industry
+       Can be used as : Stream processing,storage system,Messaging system
+       
+Kafka COntroller : The broker which manages the leader/follower relationship for all partitions.
+
+
+Role of zookeeper: Electing controller.
+                   Manages kafka cluster.
+                    Keeps track of topics ,its partitions and replicas.
