@@ -1,4 +1,4 @@
- notes:
+  notes:
 
 pub -sub (publish subscribe). Develpoed by twitter.
 Features: partioning,replication high throughput over point to point messaging system.
