@@ -24,7 +24,7 @@ public  class ProducerService {
 	}
 
 	public String sendMessage(String message) {
-		logger.info(String.format("$$$$ => Producing message: %s", message));
+		logger.info(String.format("$$$$ => Producing message : %s", message));
 
 		 
 	        kafkaTemplate.send(IKafkaConstants.TOPIC_NAME, message);
