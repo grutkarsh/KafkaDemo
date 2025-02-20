@@ -43,4 +43,19 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
            name: my-artifact
-           path: target/*.jar 
+           path: target/*.jar
+           
+           
+  Deployjob:
+   needs: Buildjob
+   runs-on: ubuntu-latest
+   steps:
+    - name: download artifact
+      uses: actions/download-articat@v3
+      with:
+        name: my-artifact
+    - name: show files
+      run: ls   
+    - name: deploy job
+      run: echo "deploying"
+     
