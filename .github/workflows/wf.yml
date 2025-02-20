@@ -51,7 +51,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
     - name: download artifact
-      uses: actions/download-articat@v3
+      uses: actions/download-articat@v4
       with:
         name: my-artifact
     - name: show files
