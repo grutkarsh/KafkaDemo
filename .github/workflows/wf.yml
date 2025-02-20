@@ -19,7 +19,8 @@ jobs:
         with:
             distribution: 'temurin' 
             java-version: '8'
-     
+      - name: mvn test step
+        run: mvn clean test
         
         
   Buildjob:
