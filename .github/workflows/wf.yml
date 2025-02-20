@@ -9,7 +9,7 @@ on:
      branches: [main,R1]
         
 jobs:
-  job1:
+  Testjob:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -22,8 +22,8 @@ jobs:
      
         
         
-  job2:
-    needs: job1
+  Buildjob:
+    needs: Testjob
     runs-on: ubuntu-latest
     steps:
      - name: checkout
