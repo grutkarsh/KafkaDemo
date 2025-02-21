@@ -41,6 +41,7 @@ jobs:
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
+         echo " printing default ${{ env.GITHUB_ACTION}}"
         
         
   Buildjob:
