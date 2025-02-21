@@ -10,21 +10,21 @@ on:
      types: [opened, reopened]
      branches: [main,R1]
 env:
-  MyName: Utkarsh       
+  MyName: Utkarsh    ##wf level env variable    
 jobs:
   Testjob:
    runs-on: ubuntu-latest
    env:
-       yourName: 8
+       yourName: 8   ##job level env variable
     
    steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 
       - name: set up java
         uses: actions/setup-java@v4
         with:
             distribution: 'temurin' 
-            java-version: ${{env.yourName}}
+            java-version: ${{env.yourName}} ##must be accessed using context
       - name: cache maven dependncies
         uses: actions/cache@v4
         with:
@@ -36,7 +36,7 @@ jobs:
         run: mvn clean test
       - name: print env variable2
         env:
-              hi: ramu
+              hi: ramu  ##step level env variable
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
