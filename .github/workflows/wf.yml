@@ -78,4 +78,7 @@ jobs:
       run: echo "deploying"
     - name: print env variable3
       run:  echo "my name is $MyName"
+    - name: print env variable3 using context
+      run:  echo "my name is ${{ env.MyName}}"
+      
      
