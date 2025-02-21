@@ -21,6 +21,13 @@ jobs:
         with:
             distribution: 'temurin' 
             java-version: '8'
+      - name: cache maven dependncies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+             ${{ runner.os }}-maven-
       - name: mvn test step
         run: mvn clean test
         
@@ -36,6 +43,13 @@ jobs:
        with:
             distribution: 'temurin' 
             java-version: '8'
+     - name: cache maven dependncies
+       uses: actions/cache@v4
+       with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+             ${{ runner.os }}-maven-
      - name: build
        run: mvn clean package -Dmaven.test.skip
        
