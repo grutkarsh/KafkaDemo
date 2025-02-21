@@ -35,8 +35,9 @@ jobs:
       - name: mvn test step
         run: mvn clean test
       - name: print env variable2
-        run:  echo "my name is $MyName"
-        run: echo " job level name ${{ env.yourName}}"
+        run:  |
+         echo "my name is $MyName"
+         echo " job level name ${{ env.yourName}}"
         
         
   Buildjob:
