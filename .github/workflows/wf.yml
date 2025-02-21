@@ -15,7 +15,8 @@ jobs:
   Testjob:
    runs-on: ubuntu-latest
    env:
-       yourName: 8   ##job level env variable
+       yourName: shyam   ##job level env variable
+       java_version: 8
     
    steps:
       - name: checkout
@@ -24,7 +25,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
             distribution: 'temurin' 
-            java-version: ${{env.yourName}} ##must be accessed using context
+            java-version: ${{env.java_version}} ##must be accessed using context
       - name: cache maven dependncies
         uses: actions/cache@v4
         with:
