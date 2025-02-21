@@ -9,7 +9,8 @@ on:
    pull_request:
      types: [opened, reopened]
      branches: [main,R1]
-        
+env:
+  MyName: Utkarsh       
 jobs:
   Testjob:
     runs-on: ubuntu-latest
@@ -30,6 +31,8 @@ jobs:
              ${{ runner.os }}-maven-
       - name: mvn test step
         run: mvn clean test
+      - name: print env variable2
+        run:  echo "my name is $MyName"
         
         
   Buildjob:
@@ -58,7 +61,8 @@ jobs:
        with:
            name: my-artifact
            path: target/*.jar
-           
+     - name: print env variable2
+       run:  echo "my name is $MyName"  
            
   Deployjob:
    needs: Buildjob
@@ -72,4 +76,6 @@ jobs:
       run: ls   
     - name: deploy job
       run: echo "deploying"
+    - name: print env variable3
+      run:  echo "my name is $MyName"
      
