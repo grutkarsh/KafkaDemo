@@ -13,8 +13,11 @@ env:
   MyName: Utkarsh       
 jobs:
   Testjob:
-    runs-on: ubuntu-latest
-    steps:
+  runs-on: ubuntu-latest
+  env:
+       yourName: sonu
+    
+  steps:
       - name: checkout
         uses: actions/checkout@v4
       - name: set up java
@@ -33,6 +36,7 @@ jobs:
         run: mvn clean test
       - name: print env variable2
         run:  echo "my name is $MyName"
+        run: echo " job level name ${{ env.yourName}}"
         
         
   Buildjob:
