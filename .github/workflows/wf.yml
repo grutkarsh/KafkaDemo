@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
             distribution: 'temurin' 
-            java-version: "$yourName"
+            java-version: '$yourName'
       - name: cache maven dependncies
         uses: actions/cache@v4
         with:
