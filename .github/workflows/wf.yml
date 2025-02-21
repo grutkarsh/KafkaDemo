@@ -41,7 +41,7 @@ jobs:
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
-         echo $GITHUB_SERVER_URL
+         echo $"{{env.GITHUB_SERVER_URL}}"
         
         
   Buildjob:
