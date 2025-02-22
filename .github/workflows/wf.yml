@@ -11,7 +11,7 @@ on:
      branches: [main,R1]
 env:
   MyName: Utkarsh    ##wf level env variable
-  password: ${{secrets.password}}   
+  password: ${{secrets.password}}   ##repository level secret
 jobs:
   Testjob:
    runs-on: ubuntu-latest
@@ -43,6 +43,7 @@ jobs:
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
          echo "password is: ${{env.password}}"
+         echo "password is: $password"
       
         
   Buildjob:
