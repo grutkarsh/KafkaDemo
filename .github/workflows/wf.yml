@@ -10,7 +10,8 @@ on:
      types: [opened, reopened]
      branches: [main,R1]
 env:
-  MyName: Utkarsh    ##wf level env variable    
+  MyName: Utkarsh    ##wf level env variable
+  password: abc    
 jobs:
   Testjob:
    runs-on: ubuntu-latest
@@ -25,7 +26,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
             distribution: 'temurin' 
-            java-version: ${{env.java_version}} ##must be accessed using context
+            java-version: ${{env.java_version}} ##must be accessed using context object
       - name: cache maven dependncies
         uses: actions/cache@v4
         with:
@@ -41,6 +42,7 @@ jobs:
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
+         echo "password is: ${{env.password}}"
       
         
   Buildjob:
