@@ -40,7 +40,7 @@ jobs:
       - name: print env variable2
         env:
               hi: ramu  ##step level env variable
-        if: "{{steps.teststepid.outcome == 'failure'}}"
+        if: steps.teststepid.outcome == 'failure'
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
