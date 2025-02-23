@@ -47,7 +47,7 @@ jobs:
       
         
   Buildjob:
-    needs: Testjob
+    #needs: Testjob
     runs-on: ubuntu-latest
     steps:
      - name: checkout

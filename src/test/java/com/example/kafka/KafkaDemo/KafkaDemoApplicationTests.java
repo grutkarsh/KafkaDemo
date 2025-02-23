@@ -43,7 +43,7 @@ class KafkaDemoApplicationTests {
 	void test1()
 	{
 		when(producerService.sendMessage("hi")).thenReturn("mockitodone");
-		assertEquals("mockitodone", kafkaController.sendMessageToKafkaTopic("hi"));
+		assertEquals("mockitodone1", kafkaController.sendMessageToKafkaTopic("hi"));
 	}
 
 }
