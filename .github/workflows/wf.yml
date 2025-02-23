@@ -37,10 +37,12 @@ jobs:
       - name: mvn test step
         id: teststepid
         run: mvn clean test
+      - name: print dummy
+        run: echo "dummy"
       - name: print env variable2
         env:
               hi: ramu  ##step level env variable
-        if: steps.teststepid.outcome == 'failure'
+        if: (failure() && steps.teststepid.outcome == 'failure')
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
