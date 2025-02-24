@@ -37,12 +37,10 @@ jobs:
       - name: mvn test step
         id: teststepid
         run: mvn clean test
-      - name: print dummy
-        run: echo "dummy"
       - name: print env variable2
         env:
               hi: ramu  ##step level env variable
-        if: (failure() && steps.teststepid.outcome == 'failure')
+        if: (failure() && steps.teststepid.outcome == 'failure') ##use of conditional functions
         run:  |
          echo "my name is $MyName $hi"
          echo " job level name ${{ env.yourName}}"
@@ -51,7 +49,7 @@ jobs:
       
         
   Buildjob:
-    #needs: Testjob
+    needs: Testjob
     runs-on: ubuntu-latest
     steps:
      - name: checkout
@@ -97,5 +95,12 @@ jobs:
       run:  |
        echo "my name is ${{ env.MyName}}"
        echo " job level name ${{ env.yourName}}"
+       
+  Reportjob:
+     runs-on: ubuntu-latest
+     if: failure()
+     steps:
+      - name: print reports
+        run: echo "job failed ...."
       
      
