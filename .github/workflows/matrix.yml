@@ -2,7 +2,11 @@ name: metrix demo
 on: push
 jobs:
   buildjob:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       os-name: [ubuntu-latest,windows-latest]
+       javav: [8,9]
+    runs-on: ${{matrix.os-name}}
     steps:
       - name: code checkout
         uses: actions/checkout@v4
@@ -10,7 +14,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin' 
-          java-version: 8
+          java-version: ${{matrix.javav}}
       - name: maven build
         run: mvn clean test
     
