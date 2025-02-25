@@ -2,16 +2,17 @@ name: metrix demo
 on: push
 jobs:
   buildjob:
+    continue-on-error: true
     strategy:
       matrix:
        os-name: [ubuntu-latest,windows-latest]
-       javav: [8,11]
+       javav: [8,21]
        exclude:
        - os-name: ubuntu-latest
-         javav: 11
+         javav: 21
        include:
-       - os-name: ubuntu-latest
-         javav: 13
+       - os-name: macos-latest
+         javav: 8
         
     runs-on: ${{matrix.os-name}}
     steps:
