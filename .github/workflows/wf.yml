@@ -97,6 +97,9 @@ jobs:
        echo "my name is ${{ env.MyName}}"
        echo " job level name ${{ env.yourName}}"
        
+  Deployjob2:
+    uses: ./.github/workflows/reusablewf.yml
+       
   Reportjob:
      runs-on: ubuntu-latest
      needs: [Testjob]

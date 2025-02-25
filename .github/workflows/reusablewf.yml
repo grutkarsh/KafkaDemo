@@ -1,0 +1,7 @@
+name: resusablewf-demo
+on: workflow_call
+jobs:
+  deploymentjob:
+    steps:
+      - name: deplying from reusable
+        run: echo "deploying..."
