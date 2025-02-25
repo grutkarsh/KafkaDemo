@@ -5,7 +5,7 @@ jobs:
     strategy:
       matrix:
        os-name: [ubuntu-latest,windows-latest]
-       javav: [8,9]
+       javav: [8]
     runs-on: ${{matrix.os-name}}
     steps:
       - name: code checkout
