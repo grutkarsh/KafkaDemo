@@ -2,6 +2,7 @@ name: resusablewf-demo
 on: workflow_call
 jobs:
   deploymentjob:
+    runs-on: ubuntu-latest
     steps:
       - name: deplying from reusable
         run: echo "deploying..."
