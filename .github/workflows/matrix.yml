@@ -5,7 +5,14 @@ jobs:
     strategy:
       matrix:
        os-name: [ubuntu-latest,windows-latest]
-       javav: [8]
+       javav: [8,11]
+       exclude:
+       - os-name: ubuntu-latest
+         javav: 11
+       include:
+       - os-name: ubuntu-latest
+         javav: 13
+        
     runs-on: ${{matrix.os-name}}
     steps:
       - name: code checkout
