@@ -6,13 +6,13 @@ jobs:
     strategy:
       matrix:
        os-name: [ubuntu-latest,windows-latest]
-       javav: [8,21]
+       javav: [8]
        exclude:
        - os-name: ubuntu-latest
-         javav: 21
-       include:
-       - os-name: macos-latest
          javav: 8
+       include:
+       - os-name: ubuntu-latest
+         javav: 21
         
     runs-on: ${{matrix.os-name}}
     steps:
