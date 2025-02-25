@@ -36,7 +36,7 @@ jobs:
              ${{ runner.os }}-maven-
       - name: mvn test step
         id: teststepid
-        continue-on-error: true
+        ##continue-on-error: true
         run: mvn clean test
       - name: print env variable2
         env:
